@@ -1,0 +1,17 @@
+.game-content {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.game-personal-score {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-start {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}

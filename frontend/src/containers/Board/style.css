@@ -1,0 +1,61 @@
+.board-board {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.board-square {
+  width: 58px;
+  height: 58px;
+  color: #000;
+  border: 1px solid #000;
+  background-color: darkgrey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.board-active {
+  pointer-events: none;
+  background-color: dimgray;
+}
+
+.board-one {
+  pointer-events: none;
+  background-color: lightgoldenrodyellow;
+}
+.board-one::before {
+  content: "1";
+  background-color: lightgoldenrodyellow;
+}
+
+.board-two {
+  pointer-events: none;
+  background-color: burlywood;
+}
+.board-two::before {
+  content: "2";
+  background-color: burlywood;
+}
+
+.board-three {
+  pointer-events: none;
+  background-color: coral;
+}
+.board-three::before {
+  content: "3";
+}
+
+.board-treasure {
+  pointer-events: none;
+  background-color: darkred;
+}
+.board-treasure::before {
+  content: "T";
+  background-color: darkred;
+}
+
+.board-block {
+  pointer-events: none;
+}

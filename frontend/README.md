@@ -1,19 +1,15 @@
-# Treasure-challenge
-
-### UI: Material UI
-
-https://material-ui.com/
+# Treasure Challenge - Frontend - ReactJS
 
 ### Test: Jest / React Testing Library
 
-- https://jestjs.io/
-- https://testing-library.com/
+- https://jestjs.io
+- https://testing-library.com
 
 ## How to run
 
 - npm install / yarn
 - npm run start / yarn start
-- Access: http://localhost:3003
+- Access: http://localhost:3000
 - Edit `REACT_APP_API_URL` on `.env` with the API URI if needed
 
 ## How to build

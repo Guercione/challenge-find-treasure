@@ -1,6 +1,6 @@
-package com.challenge.treasure.tests.matchController;
+package com.challenge.treasure.Controller.Match;
 
-import com.challenge.treasure.MatchController;
+import com.challenge.treasure.controller.MatchController;
 import com.challenge.treasure.model.Position;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
@@ -18,13 +18,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(MatchController.class)
 @ComponentScan("com")
-public class MatchController_Play {
+public class MatchController_Score {
     private String name = "Guilherme";
 
     private ObjectMapper objectMapper = new ObjectMapper();
@@ -37,33 +39,14 @@ public class MatchController_Play {
     private MockMvc mvc;
 
     @Test
-    public void testPlayBoardBadRequest() throws Exception {
-        mvc.perform(post("/board/123")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content("")
-                .characterEncoding("utf-8"))
-                .andExpect(status().isBadRequest());
+    public void testEmptyScore() throws Exception {
+        mvc.perform(get("/score"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("[]"));
     }
 
     @Test
-    public void testPlayBoardNotFound() throws Exception {
-        List<Position> positions = new ArrayList<Position>();
-
-        positions.add(new Position(0, 1));
-        positions.add(new Position(2, 3));
-
-        String body = objectMapper.writeValueAsString(positions);
-
-        mvc.perform(post("/board")
-                .contentType(MediaType.APPLICATION_JSON)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(body)
-                .characterEncoding("utf-8"))
-                .andExpect(status().isNotFound());
-    }
-
-    @Test
-    public void testPlayBoardSuccess() throws Exception {
+    public void testScore() throws Exception {
         List<Position> positions = new ArrayList<Position>();
 
         positions.add(new Position(0, 1));
@@ -73,31 +56,23 @@ public class MatchController_Play {
         String newGameBody = objectMapper.writeValueAsString(userNameObject);
         String playBody = objectMapper.writeValueAsString(positions);
 
-        MvcResult newGameResponse = mvc.perform(post("/new-game")
+        MvcResult res =  mvc.perform(post("/new-game")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(newGameBody)
                 .characterEncoding("utf-8"))
                 .andExpect(status().isOk())
                 .andReturn();
 
-        Integer matchHash = JsonPath.read(newGameResponse.getResponse().getContentAsString(), "$.matchHash");
+        Integer matchHash = JsonPath.read(res.getResponse().getContentAsString(), "$.matchHash");
 
-        MvcResult playResponse = mvc.perform(post("/board/" + matchHash)
+        mvc.perform(post("/board/" + matchHash)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(playBody)
                 .characterEncoding("utf-8"))
-                .andExpect(status().isOk())
-                .andReturn();
+                .andExpect(status().isOk());
 
-        String responseBody = playResponse.getResponse().getContentAsString();
-        String userName = JsonPath.read(responseBody, "$.userName");
-        Integer turns = JsonPath.read(responseBody, "$.turns");
-        Integer treasures = JsonPath.read(responseBody, "$.treasures");
-        Boolean done = JsonPath.read(responseBody, "$.done");
+        MvcResult scoreResponse = mvc.perform(get("/score")).andExpect(status().isOk()).andReturn();
 
-        assertEquals(name, userName);
-        assertEquals(1, turns);
-        assertEquals(3, treasures);
-        assertEquals(true, done);
+        assertEquals(true, scoreResponse.getResponse().getContentAsString().contains(matchHash.toString()));
     }
 }

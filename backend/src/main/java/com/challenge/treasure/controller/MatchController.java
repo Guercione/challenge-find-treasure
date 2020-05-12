@@ -1,4 +1,4 @@
-package com.challenge.treasure;
+package com.challenge.treasure.controller;
 
 import com.challenge.treasure.model.Match;
 import com.challenge.treasure.model.Position;
@@ -21,7 +21,6 @@ public class MatchController {
 
     @Autowired
     private ScoreService scoreService;
-
 
     @PostMapping("/new-game")
     public ResponseEntity<Match> create(@RequestBody Map<String,Object> body) {

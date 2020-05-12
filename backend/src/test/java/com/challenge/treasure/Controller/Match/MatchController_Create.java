@@ -1,6 +1,6 @@
-package com.challenge.treasure.tests.matchController;
+package com.challenge.treasure.Controller.Match;
 
-import com.challenge.treasure.MatchController;
+import com.challenge.treasure.controller.MatchController;
 import com.challenge.treasure.utils.Board;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;

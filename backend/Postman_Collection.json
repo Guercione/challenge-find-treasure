@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "a38cc5d6-5ebd-438f-836a-152272a98433",
+		"name": "Luxoft",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Game",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\": \"Guilherme\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/new-game",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"new-game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Play",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"x\": 1,\n        \"y\": 0\n    },\n    {\n        \"x\": 1,\n        \"y\": 1\n    },\n    {\n        \"x\": 0,\n        \"y\": 3\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/board/2042099903",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"board",
+						"2042099903"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Score",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/score",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"score"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -22,15 +22,14 @@ Return Top 10 Best Players
 ##### Response
 
 ```
-response: {
-	{
+response: [{
     "matchHash": 733552022,
     "userName": "Guilherme",
     "turns": 1,
     "treasures": 3,
     "done": true,
     "userBoard": [[0,9,0,0,0], [0,0,0,0,0], [0,0,0,9,0], [0,0,0,0,0], [0,9,0,0,0]]
-}
+}]
 ```
 
 #### POST - /new-game
@@ -49,7 +48,6 @@ body: {
 
 ```
 response: {
-	{
     "matchHash": 733552022,
     "userName": "Guilherme",
     "turns": 0,
@@ -79,7 +77,6 @@ body: [{ x: 1, y: 0 }]
 
 ```
 response: {
-	{
     "matchHash": 733552022,
     "userName": "Guilherme",
     "turns": 1,

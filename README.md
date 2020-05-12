@@ -1,25 +1,25 @@
 # Challenge Event Register - Backend and Frontend
 
-## ReactJS / Java Spring
+# ReactJS / Java Spring
 
-## BACKEND - Java Spring
+### BACKEND - Java Spring
 
-## Spring Boot Maven Docs
+### Spring Boot Maven Docs
 
 - https://maven.apache.org/guides/index.html
 - https://docs.spring.io/spring-boot/docs/2.2.7.RELEASE/maven-plugin/
 
-## How to run
+### How to run
 
 - mvn install
 - java -jar target/treasure-0.0.1-SNAPSHOT.jar
 - Fun
 
-### GET - /score
+#### GET - /score
 
 Return Top 10 Best Players
 
-#### Response
+##### Response
 
 ```
 response: {
@@ -33,11 +33,11 @@ response: {
 }
 ```
 
-### POST - /new-game
+#### POST - /new-game
 
 Start new game
 
-#### Request
+##### Request
 
 ```
 body: {
@@ -45,7 +45,7 @@ body: {
 }
 ```
 
-#### Response
+##### Response
 
 ```
 response: {
@@ -59,11 +59,11 @@ response: {
 }
 ```
 
-### POST - /board/:id
+#### POST - /board/:id
 
 Play the game
 
-#### Request
+##### Request
 
 ```
 body: [{ x: 1, y: 0 }, { x: 1, y: 1 }, { x: 0, y: 3 }]
@@ -75,7 +75,7 @@ or
 body: [{ x: 1, y: 0 }]
 ```
 
-#### Response
+##### Response
 
 ```
 response: {
@@ -89,10 +89,26 @@ response: {
 }
 ```
 
-#### Warning: import "Postman_Collection.json" to the Postman
+##### Warning: import "Postman_Collection.json" to the Postman
 
 ---
 
-## FRONTEND - ReactJS
+### FRONTEND - ReactJS
 
-TODO
+### Test: Jest / React Testing Library
+
+- https://jestjs.io
+- https://testing-library.com
+
+## How to run
+
+- npm install / yarn
+- npm run start / yarn start
+- Access: http://localhost:3000
+- Edit `REACT_APP_API_URL` on `.env` with the API URI if needed
+- Fun
+
+## How to build
+
+- npm run build / yarn build
+- Copy all content from the "public" folder to the server

@@ -11,6 +11,7 @@
 - npm run start / yarn start
 - Access: http://localhost:3000
 - Edit `REACT_APP_API_URL` on `.env` with the API URI if needed
+- Fun
 
 ## How to build
 

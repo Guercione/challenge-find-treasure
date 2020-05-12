@@ -1,18 +1,35 @@
-# Treasure Challenge - Backend - Java
+# Treasure Challenge - Backend - Java Spring Boot
 
-## BACKEND - Java
+## BACKEND - Java Spring
 
-### Test: TODO
+## Spring Boot Maven
 
-TODO
+- https://maven.apache.org/guides/index.html
+- https://docs.spring.io/spring-boot/docs/2.2.7.RELEASE/maven-plugin/
 
 ## How to run
 
-TODO
+- mvn install
+- java -jar target/treasure-0.0.1-SNAPSHOT.jar
+- Fun
 
 ### GET - /score
 
 Return Top 10 Best Players
+
+#### Response
+
+```
+response: {
+	{
+    "matchHash": 733552022,
+    "userName": "Guilherme",
+    "turns": 1,
+    "treasures": 3,
+    "done": true,
+    "userBoard": [[0,9,0,0,0], [0,0,0,0,0], [0,0,0,9,0], [0,0,0,0,0], [0,9,0,0,0]]
+}
+```
 
 ### POST - /new-game
 

@@ -9,9 +9,9 @@ export const getMatch = () => {
   return JSON.parse(localStorage.getItem(_match) || "{}");
 };
 
-export const deletetMatch = () => {
-  return JSON.parse(localStorage.removeItem(_match));
-};
+export function deletetMatch() {
+  localStorage.removeItem(_match);
+}
 
 export const setUserName = (userName) => {
   return localStorage.setItem(_userName, userName);

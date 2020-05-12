@@ -38,7 +38,7 @@ const Game = ({
 
   return (
     <React.Fragment>
-      <div className="game-content">
+      <div className="game-content" data-testid="game-content">
         <div>{renderContent()}</div>
         <div>
           <If condition={userName}>

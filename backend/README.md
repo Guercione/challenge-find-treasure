@@ -2,22 +2,22 @@
 
 ## BACKEND - Java Spring
 
-## Spring Boot Maven
+### Spring Boot Maven Docs
 
 - https://maven.apache.org/guides/index.html
 - https://docs.spring.io/spring-boot/docs/2.2.7.RELEASE/maven-plugin/
 
-## How to run
+### How to run
 
 - mvn install
 - java -jar target/treasure-0.0.1-SNAPSHOT.jar
 - Fun
 
-### GET - /score
+#### GET - /score
 
 Return Top 10 Best Players
 
-#### Response
+##### Response
 
 ```
 response: {
@@ -31,11 +31,11 @@ response: {
 }
 ```
 
-### POST - /new-game
+#### POST - /new-game
 
 Start new game
 
-#### Request
+##### Request
 
 ```
 body: {
@@ -43,7 +43,7 @@ body: {
 }
 ```
 
-#### Response
+##### Response
 
 ```
 response: {
@@ -57,11 +57,11 @@ response: {
 }
 ```
 
-### POST - /board/:id
+#### POST - /board/:id
 
 Play the game
 
-#### Request
+##### Request
 
 ```
 body: [{ x: 1, y: 0 }, { x: 1, y: 1 }, { x: 0, y: 3 }]
@@ -73,7 +73,7 @@ or
 body: [{ x: 1, y: 0 }]
 ```
 
-#### Response
+##### Response
 
 ```
 response: {
@@ -87,4 +87,4 @@ response: {
 }
 ```
 
-#### Warning: import "Postman_Collection.json" to the Postman
+##### Warning: import "Postman_Collection.json" to the Postman
